@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import Button from './components/Button';
-import { useEffect } from 'react';
-import { useState } from 'react';
- 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './views/Home';
+// import Button from './components/Button';
+import { useEffect, useState } from 'react';
 
-
-function App() {
+export default function App() {
   const [data, setData] = useState('initial data');
 
   // useEffect(() => {
@@ -30,19 +29,23 @@ function App() {
   //  }
 
   return (
-    <body className='container'>
-      <h1 className='sheSharp'>
-        SheSharp React.js - Check out this JSON data!
-        Hi this is Alex
-        testing
-        <br/> hello
-      </h1>
-      <p className='styledData'>
-        {data}  
-      </p>
-      {/* <Button text='Click me!' handleClick={()=>handleSubmit()}/>       */}
-    </body>
+    // <body className='container'>
+    //   <h1 className='sheSharp'>
+    //     SheSharp React.js - Check out this JSON data!
+    //     Hi this is Alex
+    //     testing
+    //     <br/> hello
+    //   </h1>
+    //   <p className='styledData'>
+    //     {data}  
+    //   </p>
+    //   {/* <Button text='Click me!' handleClick={()=>handleSubmit()}/>       */}
+    // </body>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>}>
+        </Route>
+      </Routes>
+    </Router>
   );
 }
- 
-export default App;
