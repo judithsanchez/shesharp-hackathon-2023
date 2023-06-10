@@ -15,7 +15,7 @@ body {
 }
 
 
-
+/*
 button {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
@@ -37,7 +37,7 @@ button:hover {
     cursor: pointer;
     transform: scale(1.05);
     color: #fff;
-}
+} */
 
 
 /** CUSTOM CLASSES **/
@@ -60,7 +60,7 @@ button:hover {
     justify-content: center;
 }
 
-.container {
+/* .container {
     border-radius: 20px;
     border-color: #2f4f4f;
     border-style: solid;
@@ -70,9 +70,8 @@ button:hover {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     padding: 40px;
     transition: transform 0.3s ease-in-out;
-}
+} */
 
-.container:hover {
+/* .container:hover {
     transform: scale(1.1);
-
-}
+} */
