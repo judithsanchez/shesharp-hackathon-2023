@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "../styles/Home.css"; // Import the CSS file
 
 export default function Home() {
   const [userMood, setUserMood] = useState("");
   const [userTechStack, setUserTechStack] = useState("full");
+  const [apiKey, setApiKey] = useState("");
 
   // Declare navigate for view redirection
   const navigate = useNavigate();
@@ -16,9 +17,10 @@ export default function Home() {
     const userCriteria = {
       userMood,
       userTechStack,
+      apiKey,
     };
 
-    navigate('/daily-challenge')
+    navigate("/daily-challenge");
 
     console.log(userCriteria);
   };
@@ -66,13 +68,23 @@ export default function Home() {
                 </Form.Label>
                 <Form.Control
                   as="select"
-                  value={userTechStack} // Set the value to the state variable
-                  onChange={(e) => setUserTechStack(e.target.value)} // Update the state variable on change
+                  value={userTechStack}
+                  onChange={(e) => setUserTechStack(e.target.value)}
                 >
                   <option value="full">Full Stack</option>
                   <option value="back">Back End</option>
                   <option value="front">Front End</option>
                 </Form.Control>
+              </Form.Group>
+
+              <Form.Group controlId="apiKey" className="mb-4">
+                <Form.Label>API Key</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your API Key"
+                  value={apiKey}
+                  onChange={(e) => setApiKey(e.target.value)}
+                />
               </Form.Group>
 
               <div className="text-center mb-4">
