@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.d06646b1.css",
-    "main.js": "/static/js/main.f5bbfaee.js",
-    "index.html": "/index.html",
-    "main.d06646b1.css.map": "/static/css/main.d06646b1.css.map",
-    "main.f5bbfaee.js.map": "/static/js/main.f5bbfaee.js.map"
+    "main.css": "/shesharp-hackathon-2023/static/css/main.d06646b1.css",
+    "main.js": "/shesharp-hackathon-2023/static/js/main.f5bbfaee.js",
+    "index.html": "/shesharp-hackathon-2023/index.html",
+    "main.d06646b1.css.map": "/shesharp-hackathon-2023/static/css/main.d06646b1.css.map",
+    "main.f5bbfaee.js.map": "/shesharp-hackathon-2023/static/js/main.f5bbfaee.js.map"
   },
   "entrypoints": [
     "static/css/main.d06646b1.css",
