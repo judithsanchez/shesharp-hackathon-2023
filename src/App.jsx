@@ -1,55 +1,25 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './views/Home';
 import Result from './views/Result';
-// import Button from './components/Button';
+import jobs from './db/jobs.json';
 import { useEffect, useState } from 'react';
+// import AppJudith from '../AppJudithJudith';
 
 export default function App() {
-  const [data, setData] = useState('initial data');
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/daily-challenge",
+      element: <Result/>,
+    },
+  ]);
 
-  // useEffect(() => {
-  //   console.log('useEffect');
-  //   async function fetchData() {
-  //     const response = await fetch('data.json');
-  //     const data = await response.json();
-  //     setData(data.data[0].job_name);
-  //     return data;
-  //   }
-  //   fetchData();
-  // }, []);
+  // const [data, setData] = useState('initial data');
 
-  // async function handleSubmit() {
-  //   console.log('submit');
-  //   const response = await fetch('data.json');
-  //   const data = await response.json();
-  //    console.log('submit');
-  //    setData(data.data[0].tag_categories[0]);
-  //    return data;
-  //  }
-
-  return (
-    // <body className='container'>
-    //   <h1 className='sheSharp'>
-    //     SheSharp React.js - Check out this JSON data!
-    //     Hi this is Alex
-    //     testing
-    //     <br/> hello
-    //   </h1>
-    //   <p className='styledData'>
-    //     {data}  
-    //   </p>
-    //   {/* <Button text='Click me!' handleClick={()=>handleSubmit()}/>       */}
-    // </body>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route
-						path="/daily-challenge"
-						element={<Result/>}
-					/>
-      </Routes>
-    </Router>
-  );
+  return (<RouterProvider router={router}/>);
 }

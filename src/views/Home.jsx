@@ -1,15 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Container, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "../styles/Home.css"; // Import the CSS file
+import jobs from "../db/jobs.json";
+import Result from "./Result";
 
 export default function Home() {
   const [userMood, setUserMood] = useState("");
   const [userTechStack, setUserTechStack] = useState("full");
-  const [apiKey, setApiKey] = useState("");
-
   // Declare navigate for view redirection
   const navigate = useNavigate();
+
+  //Judith
+  const unfilteredJobData = jobs.data;
+
+  const handleSearchClick = () => {
+    const filteredJobs = unfilteredJobData.filter((job) => {
+      const jobName = job.job_name.toLowerCase();
+      const jobTypeLower = userTechStack.toLowerCase();
+      const isSeniorityMatch =
+        job.seniority &&
+        (job.seniority.toLowerCase().includes("trainee") ||
+          job.seniority.toLowerCase().includes("junior") ||
+          job.seniority.toLowerCase().includes("intern") ||
+          job.seniority.toLowerCase().includes("entry"));
+
+      return (
+        jobName.includes(jobTypeLower) &&
+        job.remote === true &&
+        isSeniorityMatch
+      );
+    });
+
+    const limitedJobs = filteredJobs.slice(0, userMood);
+
+    const shuffledJobs = limitedJobs.sort(() => Math.random() - 0.5);
+
+
+    //navigate test
+    console.log('jobData at Home', shuffledJobs)
+    navigate("/daily-challenge", { state: { jobData: shuffledJobs } });
+
+  };
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -17,19 +49,31 @@ export default function Home() {
     const userCriteria = {
       userMood,
       userTechStack,
-      apiKey,
     };
 
-    navigate("/daily-challenge");
+    handleSearchClick();
+  };
 
-    console.log(userCriteria);
+  const getEmoji = (mood) => {
+    switch (mood) {
+      case "sad":
+        return "😞";
+      case "neutral":
+        return "😐";
+      case "happy":
+        return "😊";
+      default:
+        return "";
+    }
   };
 
   return (
     <>
       <div className="d-flex flex-column">
         <header className="text-center mt-3">
-          <h1 className="fw-bold">Welcome to APP_TITLE</h1>
+          <h1 className="fw-bold">
+            Welcome, let's <br /> Choose Your Hunt!
+          </h1>
         </header>
 
         <Container className="mood-container-form rounded-3 w-75 py-3 mt-5 bg-white">
@@ -40,23 +84,23 @@ export default function Home() {
                 <div>
                   <Form.Check
                     type="radio"
-                    label="Sad"
+                    label={<>{getEmoji("sad")} Sad</>}
                     name="mood"
-                    value="sad"
+                    value="1"
                     onChange={(e) => setUserMood(e.target.value)}
                   />
                   <Form.Check
                     type="radio"
-                    label="Neutral"
+                    label={<>{getEmoji("neutral")} Neutral</>}
                     name="mood"
-                    value="neutral"
+                    value="2"
                     onChange={(e) => setUserMood(e.target.value)}
                   />
                   <Form.Check
                     type="radio"
-                    label="Happy"
+                    label={<>{getEmoji("happy")} Happy</>}
                     name="mood"
-                    value="happy"
+                    value="3"
                     onChange={(e) => setUserMood(e.target.value)}
                   />
                 </div>
@@ -77,7 +121,7 @@ export default function Home() {
                 </Form.Control>
               </Form.Group>
 
-              <Form.Group controlId="apiKey" className="mb-4">
+              {/* <Form.Group controlId="apiKey" className="mb-4">
                 <Form.Label>API Key</Form.Label>
                 <Form.Control
                   type="text"
@@ -85,7 +129,7 @@ export default function Home() {
                   value={apiKey}
                   onChange={(e) => setApiKey(e.target.value)}
                 />
-              </Form.Group>
+              </Form.Group> */}
 
               <div className="text-center mb-4">
                 <Button variant="primary" type="submit">
@@ -95,6 +139,17 @@ export default function Home() {
             </div>
           </Form>
         </Container>
+        {/* <Result /> */}
+        {/* test of mapped data */}
+{/*       
+        <div>
+          {jobData.map((job, index) => (
+            <div key={index}>
+              <h2>{job.job_name}</h2>
+              <p>{job.post_url}</p>
+            </div>
+          ))}
+        </div> */}
       </div>
     </>
   );
