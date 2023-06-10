@@ -11,7 +11,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   const onFormSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
 
     const userCriteria = {
       userMood,
