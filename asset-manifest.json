@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/shesharp-hackathon-2023/static/css/main.d06646b1.css",
-    "main.js": "/shesharp-hackathon-2023/static/js/main.f5bbfaee.js",
+    "main.js": "/shesharp-hackathon-2023/static/js/main.be6830ca.js",
     "index.html": "/shesharp-hackathon-2023/index.html",
     "main.d06646b1.css.map": "/shesharp-hackathon-2023/static/css/main.d06646b1.css.map",
-    "main.f5bbfaee.js.map": "/shesharp-hackathon-2023/static/js/main.f5bbfaee.js.map"
+    "main.be6830ca.js.map": "/shesharp-hackathon-2023/static/js/main.be6830ca.js.map"
   },
   "entrypoints": [
     "static/css/main.d06646b1.css",
-    "static/js/main.f5bbfaee.js"
+    "static/js/main.be6830ca.js"
   ]
 }
