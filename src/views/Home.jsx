@@ -39,7 +39,7 @@ export default function Home() {
 
     //navigate test
     console.log('jobData at Home', shuffledJobs)
-    navigate("/daily-challenge", { state: { jobData: shuffledJobs } });
+    navigate("/daily-challenge", { state: { jobData: shuffledJobs, userMood } });
 
   };
 
@@ -139,17 +139,6 @@ export default function Home() {
             </div>
           </Form>
         </Container>
-        {/* <Result /> */}
-        {/* test of mapped data */}
-{/*       
-        <div>
-          {jobData.map((job, index) => (
-            <div key={index}>
-              <h2>{job.job_name}</h2>
-              <p>{job.post_url}</p>
-            </div>
-          ))}
-        </div> */}
       </div>
     </>
   );

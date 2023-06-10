@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Card, Button, Container } from "react-bootstrap";
 import "../styles/Result.css"; // Import the CSS file
 
-export default function Result({ mood = "sad" }) {
+export default function Result() {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -19,15 +19,11 @@ export default function Result({ mood = "sad" }) {
     });
   };
 
-  let task = '';
-
-  if (mood === "sad") {
-    task = "Research this company and see if your values are aligned.";
-  } else if (mood === "neutral") {
-    task = "Send an application to this company";
-  } else {
-    task = "Tailor your resume to the job description and send an application to this company";
-  }
+  const tasks = [
+    "Research this company and see if your values are aligned.",
+    "Send an application to this company.",
+    "Tailor your resume to the job description and send an application to this company."
+  ]
 
   return (
     <div className="d-flex text-center vh-100">
@@ -44,7 +40,7 @@ export default function Result({ mood = "sad" }) {
               <div className="card-front">
                 <Card.Body>
                   <Card.Title>You can do this!</Card.Title>
-                  <Card.Text>Task: {task}</Card.Text>
+                  <Card.Text>Task: {tasks[index]}</Card.Text>
                 </Card.Body>
               </div>
               <div className="card-back">
