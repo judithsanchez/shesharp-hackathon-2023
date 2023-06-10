@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './views/Home';
+import Result from './views/Result';
 // import Button from './components/Button';
 import { useEffect, useState } from 'react';
 
@@ -43,8 +44,11 @@ export default function App() {
     // </body>
     <Router>
       <Routes>
-        <Route path="/" element={<Home/>}>
-        </Route>
+        <Route path="/" element={<Home/>}/>
+        <Route
+						path="/daily-challenge"
+						element={<Result/>}
+					/>
       </Routes>
     </Router>
   );

@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import { Button, Container, Form } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
 import "../styles/Home.css"; // Import the CSS file
 
 export default function Home() {
   const [userMood, setUserMood] = useState("");
   const [userTechStack, setUserTechStack] = useState("full");
 
+  // Declare navigate for view redirection
+  const navigate = useNavigate();
+
   const onFormSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     const userCriteria = {
       userMood,
       userTechStack,
     };
+
+    navigate('/daily-challenge')
 
     console.log(userCriteria);
   };
