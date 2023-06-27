@@ -1,8 +1,8 @@
 # SheSharp 2023 Hackathon
 
-# About Our Solution
+[🎥 Preview](https://www.loom.com/share/7e78b57101ad4b17adce1ece127655e1?sid=26b866f6-deb3-4d07-9742-bdb7c97d6ad7)
 
-Choose Your Hunt is our solution for the Hackathon
+[🚀 Live](https://judithsanchez.github.io/shesharp-hackathon-2023/)
 
 ## Table of Contents
 
